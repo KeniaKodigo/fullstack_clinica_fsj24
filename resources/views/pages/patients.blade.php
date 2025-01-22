@@ -26,7 +26,7 @@
                         <td>{{$item->date_born}}</td>
                         <td>{{$item->phone}}</td>
                         <td>{{$item->email}}</td>
-                        <td><a href="" class="btn btn-warning">Editar</a></td>
+                        <td><a href="{{route('patients.edit', $item->id)}}" class="btn btn-warning">Editar</a></td>
                     </tr>
                 @endforeach
             </tbody>

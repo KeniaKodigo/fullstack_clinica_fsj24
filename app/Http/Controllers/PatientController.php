@@ -31,7 +31,7 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //validaciones
+        //validaciones (validated, Validator)
         $request->validate([
             'name' => 'required|string|max:50',
             'date_born' => 'required|date_format:Y-m-d',
@@ -66,17 +66,33 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
-        //
+        //select * from patient where id = $id
+        $patient = Patient::find($id); //save(), update(), find()
+        return view('pages.edit_patient', compact('patient'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'address' => 'required|string',
+            'phone' => 'required|string|max:20',
+            'email' => 'email|nullable'
+        ]);
+
+        $patient = Patient::find($id); //{}
+        $patient->name = $request->input('name');
+        $patient->address = $request->input('address');
+        $patient->phone = $request->input('phone');
+        $patient->email = $request->input('email');
+        $patient->update(); //UPDATE SET....
+        //redireccionamos a la lista de pacientes
+        return redirect()->route('patients.index');
     }
 
     /**

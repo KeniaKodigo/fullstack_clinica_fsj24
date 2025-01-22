@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::get('/', function () {
 
 //Agregamos una ruta unica para los metodos del controlador, cada uno tiene un nombre (name) y el tipo de peticion
 Route::resource('/patients', PatientController::class);
+
+Route::get('/calendar', [AppointmentController::class, 'index'])->name('appointments.index');
