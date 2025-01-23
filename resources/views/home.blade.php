@@ -11,7 +11,7 @@
 </head>
 <body>
     @include('modules.nav')
-    @if (Request::is('/'))
+    @if (Request::is('home'))
         <section class="container">
             <h1 class="text-center mt-5">Bienvenido a la plataforma!</h1>
             {{-- <p class="fw-bold">{{$dato_vista}}</p> --}}

@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{url('/dashboard')}}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/patients')}}">Pacientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Citas Medicas</a>
+                <a class="nav-link" href="{{url('/calendar')}}">Citas Medicas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>

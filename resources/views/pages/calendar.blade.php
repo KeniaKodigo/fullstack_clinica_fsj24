@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="text-center mt-4">Control de citas</h1>
-        <a href="" class="btn btn-secondary">Agregar Cita</a>
+        <a href="{{route('appointments.create')}}" class="btn btn-secondary">Agregar Cita</a>
 
         <!-- contenedor para el calendario -->
         <div class="mt-4" id="calendar"></div>
